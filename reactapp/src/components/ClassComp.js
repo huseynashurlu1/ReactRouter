@@ -1,31 +1,43 @@
 import React, { Component } from 'react'
 
 class ClassComp extends Component {
-
     state = {
-        title: "FRONT-END DEVELOPMENT",
-        status: false
+        count: 0,
+        name: ""
     }
 
-    ChangeText = () => {
+    IncreaseHandler = () => {
         this.setState({
-            title: this.state.title === "FRONT-END DEVELOPMENT" ? "BACK-END DEVELOPMENT" : "FRONT-END DEVELOPMENT"
+            count: this.state.count + 1
         })
     }
 
-    StatusHandler = () => {
+    componentDidMount() {
+        console.log("ComponentDidMount started!");
+    }
+
+    componentDidUpdate() {
+        console.log("ComponentDidUpdate started!");
+    }
+
+    componentWillUnmount() {
+        
+    }
+
+    ChangeHandler = (e) => {
         this.setState({
-            status: !this.state.status
+            name: e.target.value
         })
     }
 
-  
   render() {
+      const {count,name} = this.state;
     return (
-      <div className='text-center'>
-          <h1>{this.state.title}</h1>
-          <button onClick={this.ChangeText}>Change Text</button>
-          <button style={this.state.status===false ? {backgroundColor:"red"} : {backgroundColor:"green"}} onClick={this.StatusHandler}>{this.state.status===false ? "HIDE" : "SHOW"} STATUS</button>
+      <div className='text-center ClassComponent col-6'>
+          <h3>{count}</h3>
+          <button onClick={this.IncreaseHandler}>Click</button>
+          <input onChange={this.ChangeHandler} type="text" className="form-control mt-4" />
+            <h4>Username: {name}</h4>
       </div>
     )
   }

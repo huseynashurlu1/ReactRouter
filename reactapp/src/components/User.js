@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import '../App.css';
+import PropTypes from 'prop-types';
 
 class User extends Component {
 
@@ -12,29 +14,51 @@ class User extends Component {
         })
     }
 
+    DeleteHandler = (e) => {
+        const {id,deleteUser} = this.props;
+        deleteUser(id);
+    }
+
   render() {
 
     const {isClose} = this.state;
-    const {firstName} = this.props;
+    const {id,name,job,salary,deleteUser} = this.props;
 
     return (
         <div className="col-lg-4">
-            <div class="card">
+            <div className="card">
                 <div className="card-header d-flex justify-content-between align-items-center">
-                    <h4>{firstName}</h4>
-                    <span onClick={this.ToggleUser}>{isClose ? "-" : "X"}</span>
+                    <i onClick={this.DeleteHandler} className="fa-solid fa-trash-can"></i>
+                    <h5>{name}</h5>
+                    <span onClick={this.ToggleUser}>{isClose ? "+" : "-"}</span>
                 </div>
                 {
-                    isClose ? null : <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    isClose ? null : <div className="card-body">
+                    <ul>
+                        <li>Worker Name: {name}</li>
+                        <li>Job: {job}</li>
+                        <li>Salary: {salary}</li>
+                    </ul>
                     </div>
                 }
             </div>
         </div>
     )
   }
+}
+
+User.defaultProps = {
+    name: "Not Found",
+    job: "Not Found",
+    deleteUser: function(){
+        return "Not Found"
+    }
+}
+
+User.propTypes = {
+    name: PropTypes.string.isRequired,
+    job: PropTypes.string.isRequired,
+    deleteUser: PropTypes.func.isRequired
 }
 
 export default User
