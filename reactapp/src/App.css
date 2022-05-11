@@ -1,66 +1,16 @@
-/* span{
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 20px;
-    user-select: none;
+.app{
+    text-align: center;
 }
 
-i{
-    cursor: pointer;
-    color: red;
-}
-h5{
-    margin-bottom: 0;
+body{
+    background-color: darkcyan;
 }
 
-input{
-    border: 2px solid #000;
+.search-input{
+    width: 30%;
+    margin: auto;
+    border: none;
     outline: none;
-    display: block;
-}
-
-
-.PHP{
-    color: blue;
-}
-
-.PYTHON{
-    color: aqua;
-}
-
-.JAVASCRIPT {
-    color: yellow;
-}
-
-#box{
-    border: 2px solid red;
     padding: 10px;
-}
-
-
-.red{
-    background-color: red;
-}
-
-.black{
-    background-color: black;
-}
-
-.purple{
-    background-color: purple;
-} */
-
-
-.ClassComponent{
-    border: 5px solid;
-    background-color: blueviolet;
-    color: #fff;
-    padding: 20px;
-}
-
-.FuncComponent{
-    border: 5px solid;
-    background-color: rgb(33, 182, 10);
-    color: #fff;
-    padding: 20px;
+    border-radius: 5px;
 }
